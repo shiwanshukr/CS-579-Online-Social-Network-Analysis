@@ -1,0 +1,26 @@
+1. Looking at the top errors printed by get_top_misclassified, name two ways you would modify your classifier to improve accuracy (it could be features, tokenization, or something else.)
+
+The various ways with which I could modify my classifier to improve accuracy are:
+
+        1.) Improving tokenization by removing stop words from the text, and then processing it to convert it to features 
+
+	2.) Adding more Positive and Negative Words, to create much better feature and capture more information thereby 			   increasing the accuracy 
+
+	3.) We can remove tokens that are just punctuation or contain numbers by using an isalpha() check on each token to 		increase the accuracy as the numbers and special characters does not have any sentiments of their own.
+
+	4.) Parameter tuning in the Logistic Regression classifier
+
+	5.) We can also generalize the meaning of quizzical thought (ambiguous/sarcastic)comment by taking out the right meaning 	of the review to clearly specify the sentiments. 
+
+
+
+
+2. Implement one of the above methods. How did it affect the results?
+
+I implemented the 3rd method with the use of "isalpha() method " which removes all the special characters, numeric values and retains the string which are aplhabet.
+This change affected the result and actually, it improves the accuracy. The model predicts more accurate true values than the one mentioned in the assignment.Thus, because of these changes we get more true positives.
+Result : 
+	Earlier accuracy: 0.770000
+	New accuracy after changing: 0.777500
+	Overall change in the accuracy is: 0.9740% = nearly 1% increment.
+	I have added the new code file as well as the image of the changed code in the git file.

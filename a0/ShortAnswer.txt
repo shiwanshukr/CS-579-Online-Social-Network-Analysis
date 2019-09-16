@@ -1,0 +1,107 @@
+Enter your responses inline below and push this file to your private GitHub
+repository.
+
+
+1. Assume I plan to use the friend_overlap function above to quantify the
+similarity of two users. E.g., because 238 is larger than 1, I conclude that
+Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
+Trump.
+
+How is this approach misleading? How might you fix it?
+
+Answers[]
+
+This approach is misleading as Gary Johnson and Jill Stein have more friends in 'comparison' to Hillary Clinton
+And Donald Trump. So, the probability of friends overlapping for Gary Johnson and Jill Stein is greater than Hillary Clinton and Donald Trump. 
+
+So to fix it, we need to take the ratio of friends overlapping of two users to the total number of friends 
+Overlapping between two users. 
+This gives us :
+
+Old value = friends(user 1).intersection(friend(user 2))
+
+New value = friends(user 2).intersection(friend(user 2))
+	    ---------------------------------------------
+		friends(user 1) + friends(user 2)
+
+New friend_overlap(Jill Stein , Gary Johnson) =   236
+						--------- = 0.04579
+						1642+3511
+
+
+New friend_overlap(Hillary Clinton, Donald Trump) = 2
+						   ------ = 0.00241
+						  784+45
+Now, with our new measures also we see that the ration of overlap for (Jill Stein, Gary Jhonson)
+Is still greater than (Hillary Clinton, Donald Trump)
+
+[][][][][][][][][][][][][][][][][][[][][[][][][][][][][][][][][][][][][][][][][][][][][]
+
+2. Looking at the output of your followed_by_hillary_and_donald function, why
+do you think this user is followed by both Hilary Clinton and Donald Trump,
+who are rivals? Do some web searches to see if you can find out more
+information.
+
+Answer[]
+1. [ Vice President Mike Pence ]:
+Due the fact that Hillary Clinton is also a politician and, VP is the Vice President of the country.Therefore, in order to understand the country's Vice President thoughts about the policies and steps that the governments are taking for the country's welfare,
+Clinton follows VP. 
+And Donald Trump being the president of United States follows the Vice President of the country as they are working together in a team. 
+
+2. [White House]
+The reason why they both follow WhiteHouse is
+	a) Both were the final candidates of the current presidential elections held in he United states and Whitehouse is 
+	   the place where the president of the United States operates from while it also determines the residence of the 
+	   elected president for his/her term. Donald Trump is a republican while Hilary Clinton as a Democrat and both were 
+	   nominated from amongst their respected parties as the final candidates. Hence White House is a common friend of the 
+	   2 users as either of the 2 or none could be the final candidate.
+
+As there are several comments passed between Donald Trump and Hillary Clinton in recent history and also that they both were the candidates of the presidential elections they both certainly are rivals and 
+Secondly, as Vice President Mike Pence is from Republican Party and certainly defends Donald Trump as per the tweets and the news. Clearly, Mike Pence and Hillary Clinton are rivals. 
+		
+[][][][][][][][][][][][][][][][][][][][][][][]][][][][][][][][][][][][][]][][][][][][][]
+
+3. There is a big difference in how many accounts each candidate follows (Gary
+Johnson follows over 3K accounts, while Donald Trump follows less than
+50). Why do you think this is? How might that affect our analysis?
+
+
+Answers[]
+
+Both Gary Johnson and Donald Trump are a businessman and politician yet their social media profile conveys an opposite message. 
+Gary Johnson follows over 3K accounts can be due to the fact that: 
+	a) He is a more active user when it comes to twitter.
+	b) He is really into the social media and is interested in what people are discussing about and what not.  
+
+This could affect our analysis since the data collected for Donald Trump might be too less since he is not a very 
+active user hence due to the lack of data we might predict the wrong facts and figure about Donald Trump since we 
+actually have incomplete data for Donald Trump. 
+
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]][][][][]
+
+
+4. The follower graph we've collected is incomplete. To expand it, we would
+have to also collect the list of accounts followed by each of the
+friends. That is, for each user X that Donald Trump follows, we would have to
+also collect all the users that X follows. Assuming we again use the API call
+https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
+we have to make? Given how Twitter does rate limiting
+(https://dev.twitter.com/rest/public/rate-limiting), approximately how many
+minutes will it take to collect this data?
+
+Answers[]
+Considering the twitter current rate limit which is 15 calls every 15 minutes. 
+Number of friends of DrJillStein:1645, Gary Johnson:3512, Hillary Clinton:784, Donald Trump:45
+Which sums to 5986. 
+Now, there will be a total of 5986 + 4 requests which is equal to 5990 requests. 
+Now, Considering the first 15 request will be processed within no times we can consider :
+5990 -15 = 5975 requests.
+It will take 'approximately..', "5970" minutes to collect the data for extended graph.
+
+
+##Note: If we use friend_overlap function, we can identify the number of common friends and further we can reduce 
+The request by 274 overlapping friends among 4 candidates so total request will be 5975 - 274 = 5701 requests and total time will be approximately 5700 minutes.  
+
+
+[][][][][][][][][][][][]][][][][]][][][][][][END][][][][][][][][][][][][][][][][][][]][]
+
